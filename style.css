@@ -87,7 +87,8 @@
     grid-template-areas: 
     "camilo-header"
     "camilo-article"
-    "camilo-sidebar";
+    "camilo-sidebar"
+    "camilo-section";
 }
 
 .wrapper.three header, .wrapper.three article, .wrapper.three aside  {
@@ -111,12 +112,35 @@
     grid-area: camilo-sidebar;
 }
 
+.wrapper.three section {
+    display: grid;
+    grid-area: camilo-section;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "name ... lastName";
+}
+
+.wrapper.three section div {
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+}
+
+.wrapper.three section div:first-child {
+    grid-area: name;
+}
+.wrapper.three section div:last-child {
+    grid-area: lastName;
+}
+
 @media (min-width: 650px) { 
     .wrapper.three {
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas: 
         "camilo-article camilo-article camilo-article camilo-sidebar"
-        "camilo-header camilo-header camilo-header camilo-header";
+        "camilo-header camilo-header camilo-header camilo-header"
+        "camilo-section camilo-section camilo-section camilo-section";
     }
 }
 
@@ -124,6 +148,7 @@
     .wrapper.three {
         grid-template-areas: 
         "camilo-sidebar camilo-header camilo-header camilo-header"
-        "camilo-sidebar camilo-article camilo-article ...";
+        "camilo-sidebar camilo-article camilo-article ..."
+        "camilo-section camilo-section camilo-section camilo-section";
     }
 }
